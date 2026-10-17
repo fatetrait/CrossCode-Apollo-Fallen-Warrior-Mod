@@ -1,7 +1,7 @@
 {
     "level": 70,
     "params": {
-        "hp": 4579,
+        "hp": 9000,
         "attack": 459,
         "defense": 457,
         "focus": 456,
@@ -14,7 +14,7 @@
     },
     "elementModes": {
         "HEAT": {
-            "hp": 4922,
+            "hp": 9500,
             "attack": 501,
             "defense": 491,
             "focus": 490,
@@ -26,7 +26,7 @@
             ]
         },
         "COLD": {
-            "hp": 5075,
+            "hp": 11000,
             "attack": 494,
             "defense": 499,
             "focus": 490,
@@ -38,7 +38,7 @@
             ]
         },
         "SHOCK": {
-            "hp": 4922,
+            "hp": 9500,
             "attack": 494,
             "defense": 434,
             "focus": 581,
@@ -50,7 +50,7 @@
             ]
         },
         "WAVE": {
-            "hp": 5266,
+            "hp": 9500,
             "attack": 436,
             "defense": 506,
             "focus": 490,
@@ -142,7 +142,7 @@
             "type": "HIT"
         },
         "brakeOver": {
-            "target": 0.7,
+            "target": 0.1,
             "initRandom": 0,
             "resetRandom": 0,
             "noStateReset": false,
@@ -150,14 +150,14 @@
             "type": "TIME"
         },
         "brakeSkipHits": {
-            "target": 3,
+            "target": 1,
             "scaleDmgFactor": false,
             "scaleEnemyFactor": false,
             "noStateReset": false,
             "type": "HIT"
         },
         "counterHits": {
-            "target": 5,
+            "target": 1,
             "scaleDmgFactor": false,
             "scaleEnemyFactor": false,
             "noStateReset": false,
@@ -2979,11 +2979,6 @@
             {
                 "value": true,
                 "type": "FACE_TO_TARGET"
-            },
-            {
-                "minTime": 0.1,
-                "maxTime": 0.15,
-                "type": "WAIT_RANDOM"
             }
         ],
         "Adjust": [
@@ -4098,7 +4093,7 @@
                         "anim": "prePointing"
                     },
                     {
-                        "time": 0.3,
+                        "time": 0.1,
                         "type": "WAIT"
                     },
                     {
@@ -9354,6 +9349,11 @@
                 "type": "COMBAT_IF",
                 "thenStep": [
                     {
+                        "name": "attackRepeat",
+                        "type": "SET_ATTRIB_BOOL",
+                        "value": false
+                    },
+                    {
                         "stateReset": false,
                         "type": "DO_ENEMY_ACTION_INLINE",
                         "actionName": "__getVeryClose"
@@ -10799,6 +10799,11 @@
                 "type": "COMBAT_IF",
                 "thenStep": [
                     {
+                        "name": "attackRepeat",
+                        "type": "SET_ATTRIB_BOOL",
+                        "value": false
+                    },
+                    {
                         "noStateReset": false,
                         "type": "DO_ENEMY_ACTION",
                         "actionName": "_ElvenOrb"
@@ -11889,6 +11894,11 @@
                 "withElse": false,
                 "type": "COMBAT_IF",
                 "thenStep": [
+                    {
+                        "name": "attackRepeat",
+                        "type": "SET_ATTRIB_BOOL",
+                        "value": false
+                    },
                     {
                         "stateReset": false,
                         "type": "DO_ENEMY_ACTION_INLINE",
@@ -14229,7 +14239,7 @@
                         "anim": "spinFull"
                     },
                     {
-                        "time": 0.3,
+                        "time": 0.2,
                         "stopBeforeEdge": false,
                         "type": "MOVE_FORWARD"
                     },
@@ -14960,7 +14970,7 @@
                 "condition": "pvp.playerPoints >=3",
                 "thenStep": [
                     {
-                        "forceValue": 0.33,
+                        "forceValue": 0.01,
                         "type": "RESET_TRACKER",
                         "tracker": "brakeOver"
                     }
